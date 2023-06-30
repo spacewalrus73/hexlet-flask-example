@@ -1,0 +1,22 @@
+<h2>Registration new user</h2>
+<form action="/users" method="post">
+    <div>
+        <label>
+            Your name:
+            <input type="text" name="name" value="{{ user.name }}">
+        </label>
+        {% if errors.name %}
+            <div>{{ errors.name }}</div>
+        {% endif %}
+    </div>
+    <div>
+        <label>
+            Your email:
+            <input type="email" name="email" value="{{ user.email }}">
+        </label>
+        {% if errors.email %}
+            <div>{{ errors.email }}</div>
+        {% endif %}
+    </div>
+    <input type="submit" value="Sign in">
+</form>

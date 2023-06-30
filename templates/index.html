@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <title>Log in</title>
+</head>
+<body>
+{% if messages %}
+<ul>
+    {% for category, message in messages %}
+    <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% if current_user %}
+<h1>Hello, {{ current_user.name }}!</h1>
+<form action="/session/delete" method="post">
+    <input type="submit" value="Sign out">
+</form>
+{% else %}
+<form action="/session/new" method="post">
+    <input type="email" required name="email" value="">
+    <input type="submit" value="Sign in">
+</form>
+{% endif %}
+</body>
+</html>
